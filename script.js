@@ -17,14 +17,34 @@ const GENRE_LABELS = {
   poetry: "บทกวี"
 };
 
+const COVER_EXTS = ["jpg", "jpeg", "png", "webp", "JPG", "JPEG", "PNG"];
+
+function coverHTML(book) {
+  const base = book.cover.replace(/\.[^.]+$/, "");
+  const safeTitle = book.title.replace(/'/g, "&#39;");
+  return `<img src="${base}.${COVER_EXTS[0]}" alt="${safeTitle}"
+      data-base="${base}" data-i="0" data-color="${book.spineColor}"
+      data-title="${safeTitle}" onerror="tryNextCover(this)">`;
+}
+
+function tryNextCover(img) {
+  let i = parseInt(img.dataset.i, 10) + 1;
+  if (i < COVER_EXTS.length) {
+    img.dataset.i = i;
+    img.src = `${img.dataset.base}.${COVER_EXTS[i]}`;
+  } else {
+    const div = document.createElement("div");
+    div.className = "fallback-spine";
+    div.style.background = img.dataset.color;
+    div.textContent = img.dataset.title;
+    img.replaceWith(div);
+  }
+}
+
 function bookCardHTML(book) {
-  const fallback = `<div class="fallback-spine" style="background:${book.spineColor}">${book.title}</div>`;
-  const coverInner = `
-    <img src="${book.cover}" alt="${book.title}"
-         onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-spine',style:'background:${book.spineColor}',textContent:'${book.title.replace(/'/g, "\\'")}'}))">`;
   return `
     <div class="book-card">
-      <div class="book-cover">${coverInner}</div>
+      <div class="book-cover">${coverHTML(book)}</div>
       <div class="book-info">
         <span class="book-genre">${book.genreLabel}</span>
         <h3 class="book-title">${book.title}</h3>
@@ -77,7 +97,7 @@ async function initSeriesGrid() {
   const books = await loadBooks();
   grid.innerHTML = books.map((b, i) => `
     <a class="genre-card" href="order.html?id=${b.id}">
-      <span class="tag-dot" style="background:${b.spineColor}"></span>
+      <div class="genre-thumb">${coverHTML(b)}</div>
       <h3>Book ${i + 1}</h3>
       <p>${b.title.replace("Harry Potter and the ", "")}</p>
     </a>`).join("");
