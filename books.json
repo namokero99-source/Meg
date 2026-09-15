@@ -6,7 +6,7 @@
     "genre": "fantasy",
     "genreLabel": "Fantasy",
     "price": 350,
-    "cover": "images/hp01.jpg",
+    "cover": "images/1.jpg",
     "spineColor": "#7A2E2E",
     "blurb": "Book 1 - English edition. The story that started it all."
   },
@@ -17,7 +17,7 @@
     "genre": "fantasy",
     "genreLabel": "Fantasy",
     "price": 350,
-    "cover": "images/hp02.jpg",
+    "cover": "images/2.jpg",
     "spineColor": "#4B5D45",
     "blurb": "Book 2 - English edition."
   },
@@ -28,7 +28,7 @@
     "genre": "fantasy",
     "genreLabel": "Fantasy",
     "price": 380,
-    "cover": "images/hp03.jpg",
+    "cover": "images/3.jpg",
     "spineColor": "#2E4A5B",
     "blurb": "Book 3 - English edition."
   },
@@ -39,7 +39,7 @@
     "genre": "fantasy",
     "genreLabel": "Fantasy",
     "price": 420,
-    "cover": "images/hp04.jpg",
+    "cover": "images/4.jpg",
     "spineColor": "#8A6A2E",
     "blurb": "Book 4 - English edition."
   },
@@ -50,7 +50,7 @@
     "genre": "fantasy",
     "genreLabel": "Fantasy",
     "price": 450,
-    "cover": "images/hp05.jpg",
+    "cover": "images/5.jpg",
     "spineColor": "#5B2020",
     "blurb": "Book 5 - English edition."
   },
@@ -61,7 +61,7 @@
     "genre": "fantasy",
     "genreLabel": "Fantasy",
     "price": 420,
-    "cover": "images/hp06.jpg",
+    "cover": "images/6.jpg",
     "spineColor": "#3E4F39",
     "blurb": "Book 6 - English edition."
   },
@@ -72,7 +72,7 @@
     "genre": "fantasy",
     "genreLabel": "Fantasy",
     "price": 450,
-    "cover": "images/hp07.jpg",
+    "cover": "images/7.jpg",
     "spineColor": "#25405B",
     "blurb": "Book 7 - English edition."
   }

@@ -18,7 +18,10 @@ const GENRE_LABELS = {
 };
 
 function bookCardHTML(book) {
-  const coverInner = `<div class="fallback-spine" style="background:${book.spineColor}">${book.title}</div>`;
+  const fallback = `<div class="fallback-spine" style="background:${book.spineColor}">${book.title}</div>`;
+  const coverInner = `
+    <img src="${book.cover}" alt="${book.title}"
+         onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fallback-spine',style:'background:${book.spineColor}',textContent:'${book.title.replace(/'/g, "\\'")}'}))">`;
   return `
     <div class="book-card">
       <div class="book-cover">${coverInner}</div>
